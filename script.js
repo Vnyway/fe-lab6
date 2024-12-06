@@ -11,14 +11,11 @@ const fetchAndDisplayUsers = async (count) => {
       const data = await res.json();
 
       const userDiv = document.createElement("div");
-      userDiv.style.border = "1px solid #ccc";
-      userDiv.style.margin = "10px";
-      userDiv.style.padding = "10px";
-      userDiv.style.backgroundColor = "#f9f9f9";
+      userDiv.classList.add("user-card");
 
       userDiv.innerHTML = `
         <img src="${data.results[0].picture.large}" />
-        <h3>${data.results[0].location.postcode}</h3>
+        <p><strong>ZIP:</strong> ${data.results[0].location.postcode}</p>
         <p><strong>Coordinates:</strong> ${data.results[0].location.coordinates.latitude}; ${data.results[0].location.coordinates.longitude}</p>
         <p><strong>Email:</strong> ${data.results[0].email}</p>
         <p><strong>City:</strong> ${data.results[0].location.city}</p>`;
